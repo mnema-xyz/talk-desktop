@@ -43,9 +43,32 @@ async function waitFor(check: () => Promise<boolean> | boolean, what: string, ti
 
 const controlHas = (word: string) => existsSync(control) && readFileSync(control, 'utf8').split('\n').includes(word)
 
+const charMap: Record<string, string> = {
+  '<': '\\u003C',
+  '>': '\\u003E',
+  '/': '\\u002F',
+  '\\': '\\\\',
+  '\b': '\\b',
+  '\f': '\\f',
+  '\n': '\\n',
+  '\r': '\\r',
+  '\t': '\\t',
+  '\0': '\\0',
+  '\u2028': '\\u2028',
+  '\u2029': '\\u2029',
+}
+
+function escapeUnsafeChars(str: string): string {
+  return str.replace(/[<>\b\f\n\r\t\0\u2028\u2029]/g, (x) => charMap[x] ?? x)
+}
+
+function safeJson(val: unknown): string {
+  return escapeUnsafeChars(JSON.stringify(val))
+}
+
 /** A request from inside the page, as the web app makes it. */
 const api = <T = unknown>(method: string, path: string, body?: unknown) => instance.evaluate<{ status: number, json: T }>(`(async () => {
-  const response = await fetch(${JSON.stringify(path)}, { method: ${JSON.stringify(method)}, headers: { 'Content-Type': 'application/json' }, body: ${body === undefined ? 'undefined' : JSON.stringify(JSON.stringify(body))} })
+  const response = await fetch(${safeJson(path)}, { method: ${safeJson(method)}, headers: { 'Content-Type': 'application/json' }, body: ${body === undefined ? 'undefined' : safeJson(JSON.stringify(body))} })
   return { status: response.status, json: await response.json().catch(() => null) }
 })()`)
 
@@ -64,7 +87,7 @@ async function chat(name: string): Promise<void> {
   const posted = await api('POST', `/api/channels/${channel}/messages`, { content: text, nonce: crypto.randomUUID() })
   assert.ok(posted.status === 200 || posted.status === 201, `status ${posted.status}`)
   sent.push(text)
-  await waitFor(() => sawEvent(`e.kind === 'message' && String(e.data).includes(${JSON.stringify(text)})`), `${name}: the message is pushed`)
+  await waitFor(() => sawEvent(`e.kind === 'message' && String(e.data).includes(${safeJson(text)})`), `${name}: the message is pushed`)
 }
 
 before(async () => {
@@ -150,7 +173,7 @@ test('the server restarts: the socket ends, requests fail meanwhile, the session
 
 /** A real mouse click on the middle of the element, as a person would make it. */
 async function clickOn(id: string): Promise<void> {
-  const box = await instance.evaluate<{ x: number, y: number }>(`(() => { const r = document.getElementById(${JSON.stringify(id)}).getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 } })()`)
+  const box = await instance.evaluate<{ x: number, y: number }>(`(() => { const r = document.getElementById(${safeJson(id)}).getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 } })()`)
   for (const type of ['mousePressed', 'mouseReleased']) await instance.send('Input.dispatchMouseEvent', { type, x: box.x, y: box.y, button: 'left', clickCount: 1 })
 }
 

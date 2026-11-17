@@ -72,7 +72,8 @@ async function chat(name: string): Promise<void> {
   const posted = await api('POST', `/api/channels/${channel}/messages`, { content: text, nonce: crypto.randomUUID() })
   assert.ok(posted.status === 200 || posted.status === 201, `status ${posted.status}`)
   sent.push(text)
-  await waitFor(() => sawEvent(`e.kind === 'message' && String(e.data).includes(${safeJson(text)})`), `${name}: the message is pushed`)
+  const b64 = Buffer.from(text).toString('base64')
+  await waitFor(() => sawEvent(`e.kind === 'message' && String(e.data).includes(atob('${b64}'))`), `${name}: the message is pushed`)
 }
 
 before(async () => {

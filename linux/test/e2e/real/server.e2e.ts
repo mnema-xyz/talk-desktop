@@ -43,36 +43,19 @@ async function waitFor(check: () => Promise<boolean> | boolean, what: string, ti
 
 const controlHas = (word: string) => existsSync(control) && readFileSync(control, 'utf8').split('\n').includes(word)
 
-const charMap: Record<string, string> = {
-  '<': '\\u003C',
-  '>': '\\u003E',
-  '/': '\\u002F',
-  '\\': '\\\\',
-  '\b': '\\b',
-  '\f': '\\f',
-  '\n': '\\n',
-  '\r': '\\r',
-  '\t': '\\t',
-  '\0': '\\0',
-  '\u2028': '\\u2028',
-  '\u2029': '\\u2029',
-}
-
-function escapeUnsafeChars(str: string): string {
-  return str
-    .replace(/\\/g, '\\\\')
-    .replace(/[<>\b\f\n\r\t\0\u2028\u2029]/g, (x) => charMap[x] ?? x)
-}
-
-function safeJson(val: unknown): string {
-  return escapeUnsafeChars(JSON.stringify(val))
-}
-
 /** A request from inside the page, as the web app makes it. */
-const api = <T = unknown>(method: string, path: string, body?: unknown) => instance.evaluate<{ status: number, json: T }>(`(async () => {
-  const response = await fetch(${safeJson(path)}, { method: ${safeJson(method)}, headers: { 'Content-Type': 'application/json' }, body: ${body === undefined ? 'undefined' : safeJson(JSON.stringify(body))} })
-  return { status: response.status, json: await response.json().catch(() => null) }
-})()`)
+const api = <T = unknown>(method: string, path: string, body?: unknown) => {
+  const payload = Buffer.from(JSON.stringify({ method, path, body: body === undefined ? null : JSON.stringify(body) })).toString('base64')
+  return instance.evaluate<{ status: number, json: T }>(`(async () => {
+    const { method, path, body } = JSON.parse(atob('${payload}'))
+    const response = await fetch(path, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: body === null ? undefined : body,
+    })
+    return { status: response.status, json: await response.json().catch(() => null) }
+  })()`)
+}
 
 /** Opens /api/ws through the host and collects what it reports. */
 const openSocket = () => instance.evaluate<number>(`(async () => {
@@ -175,7 +158,8 @@ test('the server restarts: the socket ends, requests fail meanwhile, the session
 
 /** A real mouse click on the middle of the element, as a person would make it. */
 async function clickOn(id: string): Promise<void> {
-  const box = await instance.evaluate<{ x: number, y: number }>(`(() => { const r = document.getElementById(${safeJson(id)}).getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 } })()`)
+  const b64 = Buffer.from(id).toString('base64')
+  const box = await instance.evaluate<{ x: number, y: number }>(`(() => { const r = document.getElementById(atob('${b64}')).getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 } })()`)
   for (const type of ['mousePressed', 'mouseReleased']) await instance.send('Input.dispatchMouseEvent', { type, x: box.x, y: box.y, button: 'left', clickCount: 1 })
 }
 

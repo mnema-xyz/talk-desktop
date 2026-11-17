@@ -59,7 +59,9 @@ const charMap: Record<string, string> = {
 }
 
 function escapeUnsafeChars(str: string): string {
-  return str.replace(/[<>\b\f\n\r\t\0\u2028\u2029]/g, (x) => charMap[x] ?? x)
+  return str
+    .replace(/\\/g, '\\\\')
+    .replace(/[<>\b\f\n\r\t\0\u2028\u2029]/g, (x) => charMap[x] ?? x)
 }
 
 function safeJson(val: unknown): string {

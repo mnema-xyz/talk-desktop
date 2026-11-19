@@ -1,8 +1,8 @@
 {
   "schema": "mnema-desktop-license-bundle-v1",
   "scope": "Conservative locked Rust graph and production npm closure; not a claim that all packages are linked.",
-  "cargo_lock_sha256": "593cacf54a3d1db6ba09a03113e1756ed06718ac4ecda0d23e82df0eba0da615",
-  "npm_lock_sha256": "53b69e25b8790f35b9819f2d83232a2eb47f438e76bcfd88be813a8d2f67d935",
+  "cargo_lock_sha256": "54c293bda9a9be3fba505cbac9447448822927278ed2b9252130f28c990c7065",
+  "npm_lock_sha256": "62acb83ee0e4242b6b3cfc02e8efbebcdcb69cdf7cbadabfa49872b0e4f8ff4b",
   "supplemental": {
     "rust_standard_library": {
       "version": "1.99.1",
@@ -7457,20 +7457,20 @@
     {
       "ecosystem": "cargo",
       "name": "tauri-build",
-      "version": "2.7.4",
+      "version": "2.7.6",
       "license": "Apache-2.0 OR MIT",
-      "source": "https://crates.io/crates/tauri-build/2.7.4",
+      "source": "https://crates.io/crates/tauri-build/2.7.6",
       "texts": [
         {
           "name": "LICENSE-APACHE-2.0",
           "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
-          "source": "https://crates.io/crates/tauri-build/2.7.4",
+          "source": "https://crates.io/crates/tauri-build/2.7.6",
           "provenance": "crate-archive"
         },
         {
           "name": "LICENSE-MIT",
           "sha256": "9dd42ea92cff2ede5cd477cbfcce051b2d0115c0ac7f368ee88cb545055dff1d",
-          "source": "https://crates.io/crates/tauri-build/2.7.4",
+          "source": "https://crates.io/crates/tauri-build/2.7.6",
           "provenance": "crate-archive"
         }
       ]
@@ -7478,20 +7478,20 @@
     {
       "ecosystem": "cargo",
       "name": "tauri-codegen",
-      "version": "2.7.4",
+      "version": "2.7.6",
       "license": "Apache-2.0 OR MIT",
-      "source": "https://crates.io/crates/tauri-codegen/2.7.4",
+      "source": "https://crates.io/crates/tauri-codegen/2.7.6",
       "texts": [
         {
           "name": "LICENSE-APACHE-2.0",
           "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
-          "source": "https://crates.io/crates/tauri-codegen/2.7.4",
+          "source": "https://crates.io/crates/tauri-codegen/2.7.6",
           "provenance": "crate-archive"
         },
         {
           "name": "LICENSE-MIT",
           "sha256": "9dd42ea92cff2ede5cd477cbfcce051b2d0115c0ac7f368ee88cb545055dff1d",
-          "source": "https://crates.io/crates/tauri-codegen/2.7.4",
+          "source": "https://crates.io/crates/tauri-codegen/2.7.6",
           "provenance": "crate-archive"
         }
       ]
@@ -7499,20 +7499,20 @@
     {
       "ecosystem": "cargo",
       "name": "tauri-macros",
-      "version": "2.7.4",
+      "version": "2.7.6",
       "license": "Apache-2.0 OR MIT",
-      "source": "https://crates.io/crates/tauri-macros/2.7.4",
+      "source": "https://crates.io/crates/tauri-macros/2.7.6",
       "texts": [
         {
           "name": "LICENSE-APACHE-2.0",
           "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
-          "source": "https://crates.io/crates/tauri-macros/2.7.4",
+          "source": "https://crates.io/crates/tauri-macros/2.7.6",
           "provenance": "crate-archive"
         },
         {
           "name": "LICENSE-MIT",
           "sha256": "9dd42ea92cff2ede5cd477cbfcce051b2d0115c0ac7f368ee88cb545055dff1d",
-          "source": "https://crates.io/crates/tauri-macros/2.7.4",
+          "source": "https://crates.io/crates/tauri-macros/2.7.6",
           "provenance": "crate-archive"
         }
       ]
@@ -7568,20 +7568,20 @@
     {
       "ecosystem": "cargo",
       "name": "tauri-runtime-wry",
-      "version": "2.12.3",
+      "version": "2.12.5",
       "license": "Apache-2.0 OR MIT",
-      "source": "https://crates.io/crates/tauri-runtime-wry/2.12.3",
+      "source": "https://crates.io/crates/tauri-runtime-wry/2.12.5",
       "texts": [
         {
           "name": "LICENSE-APACHE-2.0",
           "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
-          "source": "https://crates.io/crates/tauri-runtime-wry/2.12.3",
+          "source": "https://crates.io/crates/tauri-runtime-wry/2.12.5",
           "provenance": "crate-archive"
         },
         {
           "name": "LICENSE-MIT",
           "sha256": "9dd42ea92cff2ede5cd477cbfcce051b2d0115c0ac7f368ee88cb545055dff1d",
-          "source": "https://crates.io/crates/tauri-runtime-wry/2.12.3",
+          "source": "https://crates.io/crates/tauri-runtime-wry/2.12.5",
           "provenance": "crate-archive"
         }
       ]
@@ -7589,20 +7589,20 @@
     {
       "ecosystem": "cargo",
       "name": "tauri-runtime",
-      "version": "2.12.2",
+      "version": "2.12.4",
       "license": "Apache-2.0 OR MIT",
-      "source": "https://crates.io/crates/tauri-runtime/2.12.2",
+      "source": "https://crates.io/crates/tauri-runtime/2.12.4",
       "texts": [
         {
           "name": "LICENSE-APACHE-2.0",
           "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
-          "source": "https://crates.io/crates/tauri-runtime/2.12.2",
+          "source": "https://crates.io/crates/tauri-runtime/2.12.4",
           "provenance": "crate-archive"
         },
         {
           "name": "LICENSE-MIT",
           "sha256": "9dd42ea92cff2ede5cd477cbfcce051b2d0115c0ac7f368ee88cb545055dff1d",
-          "source": "https://crates.io/crates/tauri-runtime/2.12.2",
+          "source": "https://crates.io/crates/tauri-runtime/2.12.4",
           "provenance": "crate-archive"
         }
       ]
@@ -7610,20 +7610,20 @@
     {
       "ecosystem": "cargo",
       "name": "tauri-utils",
-      "version": "2.10.2",
+      "version": "2.10.4",
       "license": "Apache-2.0 OR MIT",
-      "source": "https://crates.io/crates/tauri-utils/2.10.2",
+      "source": "https://crates.io/crates/tauri-utils/2.10.4",
       "texts": [
         {
           "name": "LICENSE-APACHE-2.0",
           "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
-          "source": "https://crates.io/crates/tauri-utils/2.10.2",
+          "source": "https://crates.io/crates/tauri-utils/2.10.4",
           "provenance": "crate-archive"
         },
         {
           "name": "LICENSE-MIT",
           "sha256": "9dd42ea92cff2ede5cd477cbfcce051b2d0115c0ac7f368ee88cb545055dff1d",
-          "source": "https://crates.io/crates/tauri-utils/2.10.2",
+          "source": "https://crates.io/crates/tauri-utils/2.10.4",
           "provenance": "crate-archive"
         }
       ]
@@ -7673,20 +7673,20 @@
     {
       "ecosystem": "cargo",
       "name": "tauri",
-      "version": "2.12.5",
+      "version": "2.12.7",
       "license": "Apache-2.0 OR MIT",
-      "source": "https://crates.io/crates/tauri/2.12.5",
+      "source": "https://crates.io/crates/tauri/2.12.7",
       "texts": [
         {
           "name": "LICENSE-APACHE-2.0",
           "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
-          "source": "https://crates.io/crates/tauri/2.12.5",
+          "source": "https://crates.io/crates/tauri/2.12.7",
           "provenance": "crate-archive"
         },
         {
           "name": "LICENSE-MIT",
           "sha256": "9dd42ea92cff2ede5cd477cbfcce051b2d0115c0ac7f368ee88cb545055dff1d",
-          "source": "https://crates.io/crates/tauri/2.12.5",
+          "source": "https://crates.io/crates/tauri/2.12.7",
           "provenance": "crate-archive"
         }
       ]
@@ -8582,20 +8582,20 @@
     {
       "ecosystem": "cargo",
       "name": "uuid",
-      "version": "1.29.2",
+      "version": "1.29.3",
       "license": "Apache-2.0 OR MIT",
-      "source": "https://crates.io/crates/uuid/1.29.2",
+      "source": "https://crates.io/crates/uuid/1.29.3",
       "texts": [
         {
           "name": "LICENSE-APACHE",
           "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
-          "source": "https://crates.io/crates/uuid/1.29.2",
+          "source": "https://crates.io/crates/uuid/1.29.3",
           "provenance": "crate-archive"
         },
         {
           "name": "LICENSE-MIT",
           "sha256": "436bc5a105d8e57dcd8778730f3754f7bf39c14d2f530e4cde4bd2d17a83ec3d",
-          "source": "https://crates.io/crates/uuid/1.29.2",
+          "source": "https://crates.io/crates/uuid/1.29.3",
           "provenance": "crate-archive"
         }
       ]
@@ -10406,14 +10406,14 @@
     {
       "ecosystem": "cargo",
       "name": "zip",
-      "version": "9.5.0",
+      "version": "9.7.3",
       "license": "MIT",
-      "source": "https://crates.io/crates/zip/9.5.0",
+      "source": "https://crates.io/crates/zip/9.7.3",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "58545fed1565e42d687aecec6897d35c6d37ccb71479a137c0deb2203e125c79",
-          "source": "https://crates.io/crates/zip/9.5.0",
+          "source": "https://crates.io/crates/zip/9.7.3",
           "provenance": "crate-archive"
         }
       ]
@@ -10451,14 +10451,14 @@
     {
       "ecosystem": "npm",
       "name": "@babel/helper-string-parser",
-      "version": "7.29.7",
+      "version": "7.29.13",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/@babel/helper-string-parser/v/7.29.7",
+      "source": "https://www.npmjs.com/package/@babel/helper-string-parser/v/7.29.13",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76",
-          "source": "https://www.npmjs.com/package/@babel/helper-string-parser/v/7.29.7",
+          "source": "https://www.npmjs.com/package/@babel/helper-string-parser/v/7.29.13",
           "provenance": "npm-archive"
         }
       ]
@@ -10481,14 +10481,14 @@
     {
       "ecosystem": "npm",
       "name": "@babel/parser",
-      "version": "7.29.9",
+      "version": "7.29.13",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/@babel/parser/v/7.29.9",
+      "source": "https://www.npmjs.com/package/@babel/parser/v/7.29.13",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "2e97627cb278aa7556fb9e8817368302301a595b6c7582512b8d74c57b773652",
-          "source": "https://www.npmjs.com/package/@babel/parser/v/7.29.9",
+          "source": "https://www.npmjs.com/package/@babel/parser/v/7.29.13",
           "provenance": "npm-archive"
         }
       ]
@@ -10496,14 +10496,14 @@
     {
       "ecosystem": "npm",
       "name": "@babel/types",
-      "version": "7.29.8",
+      "version": "7.29.11",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/@babel/types/v/7.29.8",
+      "source": "https://www.npmjs.com/package/@babel/types/v/7.29.11",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "117da2af0d4ce0fe1c8e19b5cff9dcd806adf973d328d27b11d4448c4ff24f76",
-          "source": "https://www.npmjs.com/package/@babel/types/v/7.29.8",
+          "source": "https://www.npmjs.com/package/@babel/types/v/7.29.11",
           "provenance": "npm-archive"
         }
       ]
@@ -10586,14 +10586,14 @@
     {
       "ecosystem": "npm",
       "name": "@lucide/vue",
-      "version": "1.65.0",
+      "version": "1.72.0",
       "license": "ISC",
-      "source": "https://www.npmjs.com/package/@lucide/vue/v/1.65.0",
+      "source": "https://www.npmjs.com/package/@lucide/vue/v/1.72.0",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
-          "source": "https://www.npmjs.com/package/@lucide/vue/v/1.65.0",
+          "source": "https://www.npmjs.com/package/@lucide/vue/v/1.72.0",
           "provenance": "npm-archive"
         }
       ]
@@ -10718,14 +10718,14 @@
     {
       "ecosystem": "npm",
       "name": "@vue/compiler-core",
-      "version": "3.5.44",
+      "version": "3.5.45",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/@vue/compiler-core/v/3.5.44",
+      "source": "https://www.npmjs.com/package/@vue/compiler-core/v/3.5.45",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175",
-          "source": "https://www.npmjs.com/package/@vue/compiler-core/v/3.5.44",
+          "source": "https://www.npmjs.com/package/@vue/compiler-core/v/3.5.45",
           "provenance": "npm-archive"
         }
       ]
@@ -10733,14 +10733,14 @@
     {
       "ecosystem": "npm",
       "name": "@vue/compiler-dom",
-      "version": "3.5.44",
+      "version": "3.5.45",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/@vue/compiler-dom/v/3.5.44",
+      "source": "https://www.npmjs.com/package/@vue/compiler-dom/v/3.5.45",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175",
-          "source": "https://www.npmjs.com/package/@vue/compiler-dom/v/3.5.44",
+          "source": "https://www.npmjs.com/package/@vue/compiler-dom/v/3.5.45",
           "provenance": "npm-archive"
         }
       ]
@@ -10748,14 +10748,14 @@
     {
       "ecosystem": "npm",
       "name": "@vue/compiler-sfc",
-      "version": "3.5.44",
+      "version": "3.5.45",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/@vue/compiler-sfc/v/3.5.44",
+      "source": "https://www.npmjs.com/package/@vue/compiler-sfc/v/3.5.45",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175",
-          "source": "https://www.npmjs.com/package/@vue/compiler-sfc/v/3.5.44",
+          "source": "https://www.npmjs.com/package/@vue/compiler-sfc/v/3.5.45",
           "provenance": "npm-archive"
         }
       ]
@@ -10763,14 +10763,14 @@
     {
       "ecosystem": "npm",
       "name": "@vue/compiler-ssr",
-      "version": "3.5.44",
+      "version": "3.5.45",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/@vue/compiler-ssr/v/3.5.44",
+      "source": "https://www.npmjs.com/package/@vue/compiler-ssr/v/3.5.45",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175",
-          "source": "https://www.npmjs.com/package/@vue/compiler-ssr/v/3.5.44",
+          "source": "https://www.npmjs.com/package/@vue/compiler-ssr/v/3.5.45",
           "provenance": "npm-archive"
         }
       ]
@@ -10823,14 +10823,14 @@
     {
       "ecosystem": "npm",
       "name": "@vue/reactivity",
-      "version": "3.5.44",
+      "version": "3.5.45",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/@vue/reactivity/v/3.5.44",
+      "source": "https://www.npmjs.com/package/@vue/reactivity/v/3.5.45",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175",
-          "source": "https://www.npmjs.com/package/@vue/reactivity/v/3.5.44",
+          "source": "https://www.npmjs.com/package/@vue/reactivity/v/3.5.45",
           "provenance": "npm-archive"
         }
       ]
@@ -10838,14 +10838,14 @@
     {
       "ecosystem": "npm",
       "name": "@vue/runtime-core",
-      "version": "3.5.44",
+      "version": "3.5.45",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/@vue/runtime-core/v/3.5.44",
+      "source": "https://www.npmjs.com/package/@vue/runtime-core/v/3.5.45",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175",
-          "source": "https://www.npmjs.com/package/@vue/runtime-core/v/3.5.44",
+          "source": "https://www.npmjs.com/package/@vue/runtime-core/v/3.5.45",
           "provenance": "npm-archive"
         }
       ]
@@ -10853,14 +10853,14 @@
     {
       "ecosystem": "npm",
       "name": "@vue/runtime-dom",
-      "version": "3.5.44",
+      "version": "3.5.45",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/@vue/runtime-dom/v/3.5.44",
+      "source": "https://www.npmjs.com/package/@vue/runtime-dom/v/3.5.45",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175",
-          "source": "https://www.npmjs.com/package/@vue/runtime-dom/v/3.5.44",
+          "source": "https://www.npmjs.com/package/@vue/runtime-dom/v/3.5.45",
           "provenance": "npm-archive"
         }
       ]
@@ -10868,14 +10868,14 @@
     {
       "ecosystem": "npm",
       "name": "@vue/server-renderer",
-      "version": "3.5.44",
+      "version": "3.5.45",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/@vue/server-renderer/v/3.5.44",
+      "source": "https://www.npmjs.com/package/@vue/server-renderer/v/3.5.45",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175",
-          "source": "https://www.npmjs.com/package/@vue/server-renderer/v/3.5.44",
+          "source": "https://www.npmjs.com/package/@vue/server-renderer/v/3.5.45",
           "provenance": "npm-archive"
         }
       ]
@@ -10883,14 +10883,14 @@
     {
       "ecosystem": "npm",
       "name": "@vue/shared",
-      "version": "3.5.44",
+      "version": "3.5.45",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/@vue/shared/v/3.5.44",
+      "source": "https://www.npmjs.com/package/@vue/shared/v/3.5.45",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175",
-          "source": "https://www.npmjs.com/package/@vue/shared/v/3.5.44",
+          "source": "https://www.npmjs.com/package/@vue/shared/v/3.5.45",
           "provenance": "npm-archive"
         }
       ]
@@ -11108,14 +11108,14 @@
     {
       "ecosystem": "npm",
       "name": "postcss",
-      "version": "8.5.31",
+      "version": "8.5.32",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/postcss/v/8.5.31",
+      "source": "https://www.npmjs.com/package/postcss/v/8.5.32",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "5be1f3465bba68a626777f984878814aaf35e7ef8e9fd314d469bcf887050fb8",
-          "source": "https://www.npmjs.com/package/postcss/v/8.5.31",
+          "source": "https://www.npmjs.com/package/postcss/v/8.5.32",
           "provenance": "npm-archive"
         }
       ]
@@ -11206,14 +11206,14 @@
     {
       "ecosystem": "npm",
       "name": "vue",
-      "version": "3.5.44",
+      "version": "3.5.45",
       "license": "MIT",
-      "source": "https://www.npmjs.com/package/vue/v/3.5.44",
+      "source": "https://www.npmjs.com/package/vue/v/3.5.45",
       "texts": [
         {
           "name": "LICENSE",
           "sha256": "1bb85cc9b13b81ef41c81c51866172fc345e0503c86726a6755b796590b70175",
-          "source": "https://www.npmjs.com/package/vue/v/3.5.44",
+          "source": "https://www.npmjs.com/package/vue/v/3.5.45",
           "provenance": "npm-archive"
         }
       ]

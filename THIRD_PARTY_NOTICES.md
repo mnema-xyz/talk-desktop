@@ -402,15 +402,15 @@ build tooling and is not shipped.
 | [tao-macros](https://crates.io/crates/tao-macros/0.1.4) | 0.1.4 | MIT OR Apache-2.0 |
 | [tar](https://crates.io/crates/tar/0.4.46) | 0.4.46 | MIT OR Apache-2.0 |
 | [target-lexicon](https://crates.io/crates/target-lexicon/0.12.16) | 0.12.16 | Apache-2.0 WITH LLVM-exception |
-| [tauri](https://crates.io/crates/tauri/2.12.5) | 2.12.5 | Apache-2.0 OR MIT |
-| [tauri-build](https://crates.io/crates/tauri-build/2.7.4) | 2.7.4 | Apache-2.0 OR MIT |
-| [tauri-codegen](https://crates.io/crates/tauri-codegen/2.7.4) | 2.7.4 | Apache-2.0 OR MIT |
-| [tauri-macros](https://crates.io/crates/tauri-macros/2.7.4) | 2.7.4 | Apache-2.0 OR MIT |
+| [tauri](https://crates.io/crates/tauri/2.12.7) | 2.12.7 | Apache-2.0 OR MIT |
+| [tauri-build](https://crates.io/crates/tauri-build/2.7.6) | 2.7.6 | Apache-2.0 OR MIT |
+| [tauri-codegen](https://crates.io/crates/tauri-codegen/2.7.6) | 2.7.6 | Apache-2.0 OR MIT |
+| [tauri-macros](https://crates.io/crates/tauri-macros/2.7.6) | 2.7.6 | Apache-2.0 OR MIT |
 | [tauri-plugin](https://crates.io/crates/tauri-plugin/2.7.2) | 2.7.2 | Apache-2.0 OR MIT |
 | [tauri-plugin-updater](https://crates.io/crates/tauri-plugin-updater/2.14.1) | 2.14.1 | Apache-2.0 OR MIT |
-| [tauri-runtime](https://crates.io/crates/tauri-runtime/2.12.2) | 2.12.2 | Apache-2.0 OR MIT |
-| [tauri-runtime-wry](https://crates.io/crates/tauri-runtime-wry/2.12.3) | 2.12.3 | Apache-2.0 OR MIT |
-| [tauri-utils](https://crates.io/crates/tauri-utils/2.10.2) | 2.10.2 | Apache-2.0 OR MIT |
+| [tauri-runtime](https://crates.io/crates/tauri-runtime/2.12.4) | 2.12.4 | Apache-2.0 OR MIT |
+| [tauri-runtime-wry](https://crates.io/crates/tauri-runtime-wry/2.12.5) | 2.12.5 | Apache-2.0 OR MIT |
+| [tauri-utils](https://crates.io/crates/tauri-utils/2.10.4) | 2.10.4 | Apache-2.0 OR MIT |
 | [tauri-winres](https://crates.io/crates/tauri-winres/0.3.7) | 0.3.7 | MIT |
 | [tauri-winrt-notification](https://crates.io/crates/tauri-winrt-notification/0.8.1) | 0.8.1 | MIT OR Apache-2.0 |
 | [tempfile](https://crates.io/crates/tempfile/3.27.0) | 3.27.0 | MIT OR Apache-2.0 |

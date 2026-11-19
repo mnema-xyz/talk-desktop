@@ -66,7 +66,7 @@ function open(spec: Spec, how: 'bridge' | 'tauri' = 'bridge') {
     Object.defineProperty(window, '__MNEMA_DIALOG__', { value: spec, configurable: true })
     Object.defineProperty(window, '__TAURI_INTERNALS__', { value: { invoke: done }, configurable: true })
   }
-  // eslint-disable-next-line no-new-func
+  // eslint-disable-next-line no-new-func -- runs the page script of the host in the test window
   new Function(script)()
 }
 

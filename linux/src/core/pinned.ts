@@ -17,7 +17,7 @@ export const TRUST_SIG_URL = 'https://raw.githubusercontent.com/mnema-xyz/talk/m
 export const LATEST_RELEASE_URL = 'https://api.github.com/repos/mnema-xyz/talk/releases/latest'
 
 /** minisign public key of the updater, in the text form of `tauri.conf.json`. */
-export const UPDATER_PUBKEY = 'dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDg3MUUyOTlDQUVCRjZCMkYKUldRdmE3K3VuQ2tlaDdOajlZaG9vbENvRFBXQmtQd1pKUjZmK1hwRW8rSCt4b04rZzhwWVY3SkEK' // gitleaks:allow (a public key, the text of tauri.conf.json)
+export const UPDATER_PUBKEY = 'dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDg3MUUyOTlDQUVCRjZCMkYKUldRdmE3K3VuQ2tlaDdOajlZaG9vbENvRFBXQmtQd1pKUjZmK1hwRW8rSCt4b04rZzhwWVY3SkEK'
 /**
  * The update feed, tried in order: the repository has moved to mnema-xyz
  * (talk-desktop); the old msch128 path redirects and stays as a fallback.

@@ -31,7 +31,7 @@ on:
       - experimental/app/tauri.conf.json
       - .github/workflows/desktop-linux.yml
   push:
-    branches: [main, 'codex/**']
+    branches: [main]
     paths:
       - linux/**
       - test-vectors/**

@@ -37,7 +37,7 @@ export async function runPage(lang = 'en-US') {
   Object.defineProperty(navigator, 'language', { value: lang, configurable: true })
   document.documentElement.innerHTML = pageMarkup()
   // The page script is plain browser code; run it in the test window.
-  // eslint-disable-next-line no-new-func
+  // eslint-disable-next-line no-new-func -- runs the page script of the host in the test window
   new Function(script)()
   await vi.advanceTimersByTimeAsync(0)
 }

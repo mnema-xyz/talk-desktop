@@ -8,7 +8,10 @@
 pub mod hung_window;
 // Shared with the gaming-logic crate, which tests all of it on every OS; the stall tracker
 // is only used on Windows.
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "shared with the gaming-logic crate, which uses all of it; this host uses only the parts its platform has"
+)]
 #[path = "../../../src/ui_guard.rs"]
 pub mod ui_guard;
 

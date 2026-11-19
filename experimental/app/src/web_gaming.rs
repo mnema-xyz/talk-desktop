@@ -8,43 +8,76 @@
 //! they send back.
 // The modules below are shared with the gaming-logic crate, which tests all of them on every
 // OS; this host uses the parts that its platform has, so the rest is dead code here.
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "shared with the gaming-logic crate, which uses all of it; this host uses only the parts its platform has"
+)]
 #[path = "../../../src/foreground.rs"]
 mod foreground;
 #[cfg(windows)]
 #[path = "../../../src/foreground_windows.rs"]
 mod foreground_windows;
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "shared with the gaming-logic crate, which uses all of it; this host uses only the parts its platform has"
+)]
 #[path = "../../../src/fullscreen.rs"]
 mod fullscreen;
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "shared with the gaming-logic crate, which uses all of it; this host uses only the parts its platform has"
+)]
 #[path = "../../../src/game_candidate.rs"]
 mod game_candidate;
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "shared with the gaming-logic crate, which uses all of it; this host uses only the parts its platform has"
+)]
 #[path = "../../../src/game_identify.rs"]
 mod game_identify;
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "shared with the gaming-logic crate, which uses all of it; this host uses only the parts its platform has"
+)]
 #[path = "../../../src/game_library.rs"]
 mod game_library;
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "shared with the gaming-logic crate, which uses all of it; this host uses only the parts its platform has"
+)]
 #[path = "../../../src/game_library_scan.rs"]
 mod game_library_scan;
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "shared with the gaming-logic crate, which uses all of it; this host uses only the parts its platform has"
+)]
 #[path = "../../../src/game_list.rs"]
 mod game_list;
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "shared with the gaming-logic crate, which uses all of it; this host uses only the parts its platform has"
+)]
 #[path = "../../../src/windows.rs"]
 mod games;
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "shared with the gaming-logic crate, which uses all of it; this host uses only the parts its platform has"
+)]
 #[path = "../../../src/input.rs"]
 mod input;
 #[cfg(windows)]
 #[path = "../../../src/input_windows.rs"]
 mod input_windows;
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "shared with the gaming-logic crate, which uses all of it; this host uses only the parts its platform has"
+)]
 #[path = "../../../src/shortcuts.rs"]
 mod shortcuts;
-#[allow(dead_code)]
+#[allow(
+    dead_code,
+    reason = "shared with the gaming-logic crate, which uses all of it; this host uses only the parts its platform has"
+)]
 #[path = "../../../src/wide.rs"]
 mod wide;
 

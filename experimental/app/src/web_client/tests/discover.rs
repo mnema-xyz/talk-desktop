@@ -94,11 +94,9 @@ fn network_failures_are_told_apart() {
 }
 
 /// The app's own HTTPS client against public hosts on the current Let's
-/// Encrypt chains (ECDSA root X2 and RSA root X1). Needs the network, so CI
-/// runs it on Windows and macOS with `--ignored`; it catches a system TLS
+/// Encrypt chains (ECDSA root X2 and RSA root X1). Needs the network. It catches a system TLS
 /// stack that cannot build or revocation-check a new public chain.
 #[tokio::test]
-#[ignore = "needs the network"]
 async fn public_https_hosts_are_reachable() {
     let client = crate::web_proxy::client_builder()
         .timeout(Duration::from_secs(30))

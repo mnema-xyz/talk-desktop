@@ -47,7 +47,7 @@ async function open(snapshot: Partial<Snapshot>, lang = 'en-US') {
   invoke = vi.fn(async (cmd: string) => (cmd === 'native_update_state' || cmd === 'native_update_action' ? state : undefined))
   Object.defineProperty(window, '__TAURI_INTERNALS__', { value: { invoke }, configurable: true })
   // The page script is plain browser code; run it in the test window.
-  // eslint-disable-next-line no-new-func
+  // eslint-disable-next-line no-new-func -- runs the page script of the host in the test window
   new Function(script)()
   await vi.advanceTimersByTimeAsync(0)
 }

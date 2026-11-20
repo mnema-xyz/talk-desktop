@@ -1,0 +1,113 @@
+name: Desktop client published release acceptance
+
+# Called by desktop-client.yml, which carries the triggers, the concurrency group and the outputs.
+# Dispatch-only: tests a published release against an instance or the owned fixture.
+
+on:
+  workflow_call:
+    outputs:
+      revision:
+        description: Source revision that was built
+        value: ${{ jobs.windows-acceptance.outputs.revision }}
+    inputs:
+      ref:
+        required: false
+        default: ''
+        type: string
+      acceptance_release:
+        required: true
+        type: string
+      acceptance_instance:
+        required: false
+        default: ''
+        type: string
+      acceptance_fixture:
+        required: false
+        default: false
+        type: boolean
+      acceptance_voice:
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  windows-acceptance:
+    runs-on: windows-2025
+    timeout-minutes: 60
+    outputs:
+      revision: ${{ steps.source.outputs.sha }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ inputs.ref || github.sha }}
+
+      # The Vue app stays in mnema-talk and reaches this host as a signed
+      # bundle (see "Stage the signed web bundle"). The checkout supplies the
+      # notices shipped next to the portable executable. Default ref is that
+      # repo's main.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: mnema-xyz/talk
+          ref: ${{ inputs.acceptance_release || 'main' }}
+          path: mnema-talk
+          persist-credentials: false
+      - name: Capture actual source revision
+        id: source
+        shell: bash
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        if: inputs.acceptance_fixture
+        with:
+          go-version-file: mnema-talk/go.mod
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        if: inputs.acceptance_fixture
+        with:
+          node-version: 26
+      - name: Build released canonical web assets for the normal backend fixture
+        if: inputs.acceptance_fixture
+        working-directory: mnema-talk/web
+        shell: powershell
+        env:
+          ACCEPTANCE_RELEASE: ${{ inputs.acceptance_release }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:ACCEPTANCE_RELEASE -notmatch '^v[0-9]+\.[0-9]+\.[0-9]+$') { throw 'An existing release tag is required' }
+          $env:MNEMA_VERSION = $env:ACCEPTANCE_RELEASE.Substring(1)
+          npm ci --no-audit --no-fund
+          if ($LASTEXITCODE -ne 0) { throw 'Fixture web dependencies failed' }
+          npm run build
+          if ($LASTEXITCODE -ne 0) { throw 'Fixture web build failed' }
+      - name: Test the published Windows release against an actual instance
+        timeout-minutes: 15
+        # This dispatch-only setup uses the unchanged released web/backend tree.
+        # Generated credentials, certificates and database files stay in runner.temp.
+        if: inputs.acceptance_release != ''
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ACCEPTANCE_RELEASE: ${{ inputs.acceptance_release }}
+          ACCEPTANCE_INSTANCE: ${{ inputs.acceptance_instance }}
+          ACCEPTANCE_FIXTURE: ${{ inputs.acceptance_fixture }}
+          ACCEPTANCE_VOICE: ${{ inputs.acceptance_voice }}
+        working-directory: mnema-talk
+        run: |
+          if ($env:ACCEPTANCE_VOICE -eq 'true' -and $env:ACCEPTANCE_FIXTURE -ne 'true') { throw 'Voice acceptance requires the owned fixture' }
+          if ($env:ACCEPTANCE_FIXTURE -eq 'true') {
+            ../scripts/test-windows-auth-fixture.ps1 -Tag $env:ACCEPTANCE_RELEASE -VoiceAcceptance:($env:ACCEPTANCE_VOICE -eq 'true')
+          } else {
+            ../scripts/test-windows-release.ps1 -Tag $env:ACCEPTANCE_RELEASE -InstanceUrl $env:ACCEPTANCE_INSTANCE
+          }
+      - name: Upload bounded Windows acceptance result
+        if: inputs.acceptance_release != ''
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: windows-published-release-acceptance
+          path: |
+            ${{ runner.temp }}/windows-release-acceptance/ACCEPTANCE.json
+            ${{ runner.temp }}/windows-release-acceptance/SERVER-RESULT.json
+          if-no-files-found: error
+          retention-days: 7

@@ -27,7 +27,7 @@ ed25519-dalek = { version = "=3.0.0", optional = true, default-features = false,
 sha2 = { version = "=0.11.1", optional = true }
 hex = { version = "=0.4.3", optional = true }
 base64 = { version = "=0.23.1", optional = true }
-zip = { version = "=9.5.0", optional = true, default-features = false, features = ["deflate-flate2"] }
+zip = { version = "=9.7.3", optional = true, default-features = false, features = ["deflate-flate2"] }
 # zip selects flate2 without a backend; the pure-Rust one keeps the build free of C.
 flate2 = { version = "=1.1.11", optional = true, default-features = false, features = ["rust_backend"] }
 cookie = { version = "=0.18.2", optional = true, default-features = false }
@@ -40,11 +40,11 @@ rustls = { version = "=0.23.46", optional = true, default-features = false, feat
 rustls-platform-verifier = { version = "=0.7.1", optional = true }
 serde = { version = "=1.0.229", features = ["derive"] }
 serde_json = "=1.0.154"
-uuid = { version = "=1.29.2", features = ["v4"] }
+uuid = { version = "=1.29.3", features = ["v4"] }
 url = "=2.5.8"
 tokio = { version = "=1.54.1", features = ["sync", "time", "rt", "macros", "fs", "io-util"] }
 # `unstable`: several webviews in one window (the server rail beside the pages).
-tauri = { version = "=2.12.5", optional = true, features = ["unstable"] }
+tauri = { version = "=2.12.7", optional = true, features = ["unstable"] }
 # Signed native self-update. The same rustls stack and platform verifier as the rest of the host (its default provider is installed in web_tls.rs); no system proxy.
 # No `zip` feature: it is only for legacy zip-wrapped Windows packages (and pulls a vulnerable zip 4).
 tauri-plugin-updater = { version = "=2.14.1", optional = true, default-features = false, features = ["rustls-tls"] }
@@ -62,7 +62,7 @@ keyring-core = { version = "=1.0.1", optional = true }
 [dev-dependencies]
 # Signs the throwaway test releases; never part of the shipped program.
 minisign = "=0.10.0"
-tauri = { version = "=2.12.5", features = ["test"] }
+tauri = { version = "=2.12.7", features = ["test"] }
 tokio = { version = "=1.54.1", features = ["net", "io-util", "rt", "macros"] }
 # A local TLS server with a throwaway CA for the protocol-version tests (web_tls.rs); never part of the shipped program.
 tokio-rustls = { version = "=0.26.6", default-features = false, features = ["ring", "tls12"] }
@@ -71,7 +71,7 @@ rcgen = { version = "=0.14.10", default-features = false, features = ["ring", "p
 # keyring 3 wrote the session items of releases up to 0.3.x; a test reads them with the new store.
 keyring-v3 = { package = "keyring", version = "=3.6.3", default-features = false, features = ["apple-native", "windows-native"] }
 [build-dependencies]
-tauri-build = { version = "=2.7.4", optional = true }
+tauri-build = { version = "=2.7.6", optional = true }
 [[bin]]
 name = "mnema-native-client-preview"
 path = "src/main.rs"

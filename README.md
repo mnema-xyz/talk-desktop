@@ -1,7 +1,7 @@
 # Mnema Talk desktop
 
 The desktop client for [Mnema Talk](https://github.com/mnema-xyz/talk), a
-lightweight, self-hosted, single-server Discord alternative. It wraps the same
+lightweight, self-hosted community chat. It wraps the same
 Vue web app as the browser, with two additions: it removes server-served
 JavaScript from the trust equation, and it helps you stay in a Talk while you
 play. Windows and macOS run it in a Tauri host. Linux runs it in Electron,

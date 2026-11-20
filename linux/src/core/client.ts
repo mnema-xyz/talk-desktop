@@ -158,7 +158,7 @@ export function parseCommunityName(bytes: Uint8Array): string | null {
   if (typeof health !== 'object' || health === null || Array.isArray(health)) return null
   const raw = (health as Record<string, unknown>)['community_name']
   if (typeof raw !== 'string') return null
-  // eslint-disable-next-line no-control-regex
+  // eslint-disable-next-line no-control-regex -- the control characters are what is removed or refused here
   const name = Array.from(raw.replace(/[\u0000-\u001f\u007f-\u009f]/g, ' ').split(/\s+/).filter(Boolean).join(' ')).slice(0, MAX_NAME_CHARS).join('')
   return name === '' ? null : name
 }
@@ -167,7 +167,7 @@ export function parseCommunityName(bytes: Uint8Array): string | null {
 export function externalAllowed(url: URL): boolean {
   if (url.protocol === 'https:') return url.hostname !== '' && url.username === '' && url.password === '' && url.href.length <= 4096
   // The web app links an e-mail address in a message as `mailto:`. No other scheme (tel:, file:, an app's own) leaves the app.
-  // eslint-disable-next-line no-control-regex
+  // eslint-disable-next-line no-control-regex -- the control characters are what is removed or refused here
   if (url.protocol === 'mailto:') return url.pathname !== '' && url.href.length <= 2048 && !/[\u0000-\u001f\u007f]/.test(url.href)
   return false
 }

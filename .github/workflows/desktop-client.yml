@@ -49,7 +49,7 @@ on:
       - .github/workflows/desktop-client.yml
       - .github/workflows/desktop-client-*.yml
   push:
-    branches: [main, 'codex/**']
+    branches: [main]
     paths:
       - experimental/**
       - icons/**

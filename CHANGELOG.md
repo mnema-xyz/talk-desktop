@@ -1,7 +1,7 @@
 # Changelog
 
 What changed for the people who use the desktop client. Releases up to 1.3.5
-are described on the [releases page](https://github.com/msch128/mnema-talk-desktop/releases).
+are described on the [releases page](https://github.com/mnema-xyz/talk-desktop/releases).
 
 ## 1.4.0
 

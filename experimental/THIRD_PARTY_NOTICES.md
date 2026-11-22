@@ -1,6 +1,6 @@
 # Desktop host third-party notices
 
-This development build uses the pinned dependencies in app/Cargo.lock and the canonical ../mnema-talk/web/package-lock.json. The full original package license and notice texts are in licenses/texts/; licenses/manifest.json maps package/version/checksum to those texts. The graph includes optional and build dependencies conservatively and does not claim measured linking. The complete Rust 1.99.1 standard-library copyright notice, Inter OFL attribution, and build CSS notices are retained in licenses/.
+This development build uses the pinned dependencies in app/Cargo.lock and the canonical ../mnema-talk/web/package-lock.json (the mnema-xyz/talk checkout). The full original package license and notice texts are in licenses/texts/; licenses/manifest.json maps package/version/checksum to those texts. The graph includes optional and build dependencies conservatively and does not claim measured linking. The complete Rust 1.99.1 standard-library copyright notice, Inter OFL attribution, and build CSS notices are retained in licenses/.
 
 `keyring` 3.6.3 (MIT OR Apache-2.0) stores the session cookie in the macOS Keychain or Windows Credential Manager, with its macOS and Windows platform dependencies; they are in the locked inventory and licenses/manifest.json.
 

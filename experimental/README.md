@@ -12,9 +12,9 @@ Normal production instances advertise `web_client_api` and `version` in
 `/api/health`; no server change is needed. Design and threat model:
 [doc/desktop-trusted-client.md](https://github.com/mnema-xyz/talk/blob/main/doc/desktop-trusted-client.md).
 
-- **Bundle source.** One signed bundle (a release asset of mnema-talk,
+- **Bundle source.** One signed bundle (a release asset of Mnema Talk,
   `mnema-web-<version>.zip`) is built into the executable; newer ones are
-  downloaded from the mnema-talk GitHub releases (at most every six hours;
+  downloaded from the Mnema Talk GitHub releases (at most every six hours;
   `MNEMA_DESKTOP_NO_UPDATE_CHECK=1` turns the request off; the signed trust
   statement that revokes keys is still fetched) and kept in
   `<app data>/web-bundles/` (newest three). Every bundle is verified against
@@ -34,7 +34,7 @@ Normal production instances advertise `web_client_api` and `version` in
 Download the installer for your platform from the
 [desktop releases](https://github.com/mnema-xyz/talk-desktop/releases); the
 [main README](../README.md#get-it) lists the files. Each release also has a
-portable Windows ZIP that does not update itself. The server is supplied as a
+portable Windows ZIP, which updates itself from its own signed ZIP. The server is supplied as a
 Linux Docker image for amd64 and arm64. On Windows the client requires the
 Microsoft Edge WebView2 Runtime.
 
@@ -91,13 +91,13 @@ the chat window remains open. Non-HTTPS
 external links and other custom URI schemes (`tel:`, `file:`, ...) are blocked.
 Voice uses the instance's browser path: DTLS-SRTP to the SFU, with microphone,
 camera and screen payloads sealed in WebView2 before the SFU forwards them
-(trust limits: mnema-talk `SECURITY.md`). Sealed media is not yet qualified
+(trust limits: the talk repository's `SECURITY.md`). Sealed media is not yet qualified
 on WebView2.
 
 Build the production web-client mode from this repository:
 
 ```sh
-# From this repository's root, with mnema-talk checked out at mnema-talk/.
+# From this repository's root, with mnema-xyz/talk checked out at mnema-talk/.
 npm --prefix mnema-talk/web ci
 npm --prefix mnema-talk/web run build
 cargo build --locked --release --manifest-path experimental/app/Cargo.toml --features shell,web-client,custom-protocol
@@ -117,7 +117,7 @@ hardware remains separate.
 - `app/page-tests/`: behaviour tests of the plain pages the host serves (the server rail and the update page).
 - `licenses/`: the dependency license bundle shipped with a build, bound to `app/Cargo.lock` and the web app's `package-lock.json`.
 - `../src/`: the gaming logic the host includes by path (`app/src/web_gaming.rs`).
-- `../mnema-talk/web/`: the web app, checked out from mnema-talk.
+- `../mnema-talk/web/`: the web app, checked out from mnema-xyz/talk.
 
 From this repository's root, install the web app's dependencies with
 `npm ci --prefix mnema-talk/web` and build it, then build the host with
@@ -128,7 +128,7 @@ with the pinned minisign key). Operating-system
 toolchains are required for native dependency compilation.
 
 The `Shared desktop client DEV builds` workflow builds this mode on Windows and
-macOS. Matching pushes to `main` and `codex/**` produce short-lived unsigned
+macOS. Matching pushes to `main` produce short-lived unsigned
 artifacts with source revision/hash receipts and dependency notices. The managed
 release workflow also calls it for a release tag; the release then carries the
 installers, the signed update files and a portable ZIP (see "Releasing" in the

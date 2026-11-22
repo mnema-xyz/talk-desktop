@@ -160,9 +160,10 @@ prompt) and updates itself from then on. SmartScreen warns because the installer
 has no Authenticode certificate; the self-update does not depend on one (see
 below). The portable ZIP of each release updates itself as well: it downloads the signed portable ZIP of the new release, verifies it against the same pinned key, puts the new program in place of the old one (the old one is deleted at the next start) and restarts; the folder has to be one you can write to. It keeps its settings, server list and browser data in a `mnema-data` folder beside the program (or in the absolute folder named by `MNEMA_DESKTOP_DATA_DIR`). The first start copies the client's own files that an earlier portable version kept in `%LOCALAPPDATA%\com.mnema.desktop.shareddev` and `%APPDATA%\com.mnema.desktop.shareddev` (not the browser engine's data, so you sign in to your servers again); it does that once, and it does not delete them: remove those two folders by hand when you no longer need them. Deleting `mnema-data` resets the portable copy. Saved passwords live in the Windows credential store, as for any Windows program. To build from
 source, see [experimental/README.md](experimental/README.md#mnema-desktop):
-Rust and Node, with mnema-talk checked out next to this repository. The older
+Rust and Node, with the [talk](https://github.com/mnema-xyz/talk) repository checked out at
+`mnema-talk/` inside this one. The older
 Windows DEV ZIP attached to
-[mnema-talk releases through v0.7.3](https://github.com/mnema-xyz/talk/releases)
+[Mnema Talk releases through v0.7.3](https://github.com/mnema-xyz/talk/releases)
 still loads the server's JavaScript and predates the signed bundle.
 
 ### macOS
@@ -310,7 +311,7 @@ sessions and settings stay: they are kept under the app's identifier
 * **Linux:** the `.deb` keeps its package name `mnema-desktop-dev` and its
   command, so it upgrades in place and moves from `/opt/Mnema Desktop DEV` to
   `/opt/Mnema Desktop`. An AppImage is replaced where it lies and keeps its
-  file name. CI checks both (`scripts/upgrade-from-dev.sh`).
+  file name. CI checks both (`linux/scripts/upgrade-from-dev.sh`).
 
 An update is installed only if its minisign signature verifies against the
 public key pinned in `experimental/app/tauri.conf.json`, the version the
@@ -360,7 +361,7 @@ version; clients never go back to a lower one.
 
 **Remote revocation.** The client also pins an offline root key (never in CI).
 At start and every six hours it fetches a statement signed by that key from
-`desktop-trust/` in the mnema-talk repository. The statement lists the web
+`desktop-trust/` in the talk repository. The statement lists the web
 bundle keys and updater keys that are allowed and the ones that are revoked;
 the client keeps the last good one, refuses a lower serial or an expired
 statement, drops bundles signed by a revoked key (the rollback marks a revoked key
@@ -370,8 +371,8 @@ valid for 180 days; while the one in force has expired, or its fetch failed in
 a round, the client installs nothing new and keeps running what it has. A
 client only counts a statement as fresh after fetching it in the current run. An installer kept for the next start is applied at startup, before the main window loads, after that fetch succeeds and the installer has been re-verified against the fresh statement's keys; if the fetch fails it stays kept and the next start tries again.
 **The owner must re-sign about every 3 months** (`trust sign -renew`, see the
-mnema-talk doc). If a CI key leaks, the owner issues a new statement instead of racing the
-attacker with a release. The runbook is in mnema-talk
+talk repository's doc). If a CI key leaks, the owner issues a new statement instead of racing the
+attacker with a release. The runbook is in the talk repository's
 `doc/desktop-trusted-client.md` ("Key revocation"). A replacement updater key
 listed in the statement is used to verify updates, so the key in
 `tauri.conf.json` can be replaced without a client that has missed a release.
@@ -421,7 +422,7 @@ prove who built it.
 | `scripts` | Build, release and verification tooling and its tests |
 | `experimental/licenses`, `THIRD_PARTY_NOTICES.md` | Dependency licenses shipped with a build |
 
-The Vue app itself lives in [mnema-talk](https://github.com/mnema-xyz/talk);
+The Vue app itself lives in [talk](https://github.com/mnema-xyz/talk);
 CI checks it out at `mnema-talk/` and embeds the signed bundle. Read the
 server's [SECURITY.md](https://github.com/mnema-xyz/talk/blob/main/SECURITY.md)
 before relying on any end-to-end claim. Licensed under the
@@ -463,7 +464,7 @@ The app icons are generated from the project's existing `web/public/favicon.svg`
 
 `node --test scripts/*.test.mjs` tests the license inventory checker.
 `node experimental/scripts/collect-licenses.mjs --check` (with
-[mnema-talk](https://github.com/mnema-xyz/talk) checked out at `mnema-talk/`
+[talk](https://github.com/mnema-xyz/talk) checked out at `mnema-talk/`
 and `npm ci` run in `mnema-talk/web`) verifies the notices in
 `experimental/licenses` against the locked dependency graph of the host and the
 web app's production packages. Distribute that directory, the notice file and

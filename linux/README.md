@@ -12,7 +12,7 @@ people who change the client.
 
 ## What it guarantees
 
-The same as the Tauri host (the design and threat model are in mnema-talk
+The same as the Tauri host (the design and threat model are in the talk repository's
 [`doc/desktop-trusted-client.md`](https://github.com/mnema-xyz/talk/blob/main/doc/desktop-trusted-client.md)):
 
 * It runs **only the signed web bundle** (`manifest.json`, `manifest.sig`,
